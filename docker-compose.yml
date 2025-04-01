@@ -13,8 +13,6 @@ services:
   mongo-express:
     image: mongo-express:latest
     container_name: local-mongo-express
-    depends_on:
-    - mongo
     environment:
     - ME_CONFIG_MONGODB_SERVER=mongo
     ports:
