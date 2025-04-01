@@ -124,7 +124,7 @@ Un **front-end** est disponible à l’URL suivant :
 
 | Critère                                                             | Points |
 |---------------------------------------------------------------------|--------|
-| Modèle `TodoList` avec sous-documents `Task` correctement défini    | 4 pts  |
+| Modèle `TodoList` avec sous-documents `Task` correctement défini    | 2 pts  |
 | Route `GET /todolists`                                              | 1 pt   |
 | Route `POST /todolists`                                             | 2 pts  |
 | Route `GET /todolists/{id}`                                         | 1 pt   |
