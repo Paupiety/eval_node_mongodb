@@ -81,7 +81,10 @@ Tu devras créer un **modèle `TodoList`** avec le schéma suivant :
    ```bash
    docker-compose up -d
    ```
-- Utilise `node seedTodo.js` pour initialiser des données dans la base. (Le script peut être lancé à plusieurs reprises pour réinitialiser les données)
+- Utilise `seedTodo.js` pour initialiser des données dans la base. (Le script peut être lancé à plusieurs reprises pour réinitialiser les données)
+    ```bash
+    node seedTodo.js
+    ```
 
 ---
 
