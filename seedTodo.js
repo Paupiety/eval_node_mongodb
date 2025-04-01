@@ -1,6 +1,12 @@
 
 const mongoose = require("mongoose");
 
+const priority = {
+  LOW: "low",
+  MEDIUM: "medium",
+  HIGH: "high",
+}
+
 // 1. Définition du schéma
 const taskSchema = new mongoose.Schema({
   title: { type: String, required: true },
@@ -8,6 +14,7 @@ const taskSchema = new mongoose.Schema({
   done: { type: Boolean, default: false },
   dueDate: Date,
   createdAt: { type: Date, default: Date.now },
+  priority: { type: String, enum: Object.values(priority), default: priority.MEDIUM },
 });
 
 const todoListSchema = new mongoose.Schema({
@@ -39,13 +46,17 @@ async function seedDatabase() {
           {
             title: "Acheter du lait",
             description: "2 litres de lait",
+            priority: priority.HIGH,
           },
           {
             title: "Acheter des œufs",
             description: "6 œufs",
+            priority: priority.MEDIUM,
           },
           {
             title: "Acheter du pain",
+            description: "1 baguette",
+            priority: priority.LOW,
           },
         ],
       },
@@ -56,9 +67,11 @@ async function seedDatabase() {
             title: "Terminer le rapport",
             description: "Pour la réunion de lundi",
             dueDate: new Date(Date.now() + 2 * 24 * 60 * 60 * 1000),
+            priority: priority.HIGH,
           },
           {
             title: "Répondre aux emails",
+            priority: priority.MEDIUM,
           },
         ],
       },
@@ -68,9 +81,12 @@ async function seedDatabase() {
           {
             title: "Réserver hôtel",
             dueDate: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000),
+            priority: priority.LOW,
           },
           {
             title: "Préparer la valise",
+            description: "Vêtements, crème solaire, etc.",
+            priority: priority.LOW,
           },
         ],
       },
