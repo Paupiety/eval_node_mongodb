@@ -5,8 +5,8 @@ info:
   version: 1.0.0
 
 servers:
-  - url: http://localhost:3000/api
-    description: Local development server
+- url: http://localhost:3000/api
+  description: Local development server
 
 paths:
   /todolists:
@@ -33,7 +33,7 @@ paths:
             schema:
               type: object
               required:
-                - name
+              - name
               properties:
                 name:
                   type: string
@@ -106,11 +106,11 @@ paths:
 
   /todolists/{id}/tasks:
     parameters:
-      - name: id
-        in: path
-        required: true
-        schema:
-          type: string
+    - name: id
+      in: path
+      required: true
+      schema:
+        type: string
     
     post:
       summary: Add a task to a todo list
@@ -132,16 +132,16 @@ paths:
 
   /todolists/{id}/tasks/{taskId}:
     parameters:
-      - name: id
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: taskId
-        in: path
-        required: true
-        schema:
-          type: string
+    - name: id
+      in: path
+      required: true
+      schema:
+        type: string
+    - name: taskId
+      in: path
+      required: true
+      schema:
+        type: string
     
     put:
       summary: Update a task in a todo list
@@ -173,12 +173,28 @@ paths:
         '404':
           description: Todo list or task not found
 
+  /todolists/stats:
+    get:
+      summary: Get tasks stats by priority
+      description: Return an array of objects describing how many tasks have each priority
+      responses:
+        '200':
+          description: Stats by priority
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/PriorityStats'
+        '500':
+          description: Server error
+
 components:
   schemas:
     Task:
       type: object
       required:
-        - title
+      - title
       properties:
         title:
           type: string
@@ -201,7 +217,7 @@ components:
     TodoList:
       type: object
       required:
-        - name
+      - name
       properties:
         _id:
           type: string
@@ -214,3 +230,13 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Task'
+
+    PriorityStats:
+      type: object
+      properties:
+        _id:
+          type: string
+          description: Priority level (low, medium, or high)
+        count:
+          type: integer
+          description: Number of tasks with this priority

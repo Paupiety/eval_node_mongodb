@@ -67,7 +67,8 @@ Tu devras créer un **modèle `TodoList`** avec le schéma suivant :
 ### `/todolists/{id}/tasks/{taskId}`
 - `PUT`: met à jour une tâche spécifique d’une todo list
 - `DELETE`: supprime une tâche spécifique d’une todo list
-
+### `/todolists/stats`
+- `GET`: retourne des statistiques sur les todo lists (nombre total, nombre de tâches, etc.)
 ---
 
 ## 🧪 Données de test
@@ -121,21 +122,22 @@ Un **front-end** est disponible à l’URL suivant :
 
 ## 🧮 Barème
 
-| Critère                                      | Points |
-|----------------------------------------------|--------|
-| Modèle `TodoList` avec sous-documents `Task` correctement défini | 4 pts  |
-| Route `GET /todolists`                       | 1 pt   |
-| Route `POST /todolists`                      | 2 pts  |
-| Route `GET /todolists/{id}`                  | 1 pt   |
-| Route `PUT /todolists/{id}`                  | 2 pts  |
-| Route `DELETE /todolists/{id}`               | 1 pt   |
-| Route `POST /todolists/{id}/tasks`           | 2 pts  |
-| Route `PUT /todolists/{id}/tasks/{taskId}`   | 2 pts  |
-| Route `DELETE /todolists/{id}/tasks/{taskId}`| 1 pts  |
+| Critère                                                             | Points |
+|---------------------------------------------------------------------|--------|
+| Modèle `TodoList` avec sous-documents `Task` correctement défini    | 4 pts  |
+| Route `GET /todolists`                                              | 1 pt   |
+| Route `POST /todolists`                                             | 2 pts  |
+| Route `GET /todolists/{id}`                                         | 1 pt   |
+| Route `PUT /todolists/{id}`                                         | 2 pts  |
+| Route `DELETE /todolists/{id}`                                      | 1 pt   |
+| Route `POST /todolists/{id}/tasks`                                  | 1 pts  |
+| Route `PUT /todolists/{id}/tasks/{taskId}`                          | 1 pts  |
+| Route `DELETE /todolists/{id}/tasks/{taskId}`                       | 1 pts  |
+| Route `GET /todolists/stats`                                        | 2 pts  |
 | Respect de la structure du projet (clarté, séparation des fichiers) | 1 pts  |
-| Respect de l’OpenAPI (corps/retours attendus) | 2 pts  |
-| Utilisation fonctionnelle du front fourni    | 2 pts  |
-| Qualité du code (lisibilité, nommage, propreté) | 1 pts  |
+| Respect de l’OpenAPI (corps/retours attendus)                       | 2 pts  |
+| Utilisation fonctionnelle du front fourni                           | 2 pts  |
+| Qualité du code (lisibilité, nommage, propreté)                     | 1 pts  |
 
 **Total : /20 points**
 
